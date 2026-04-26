@@ -5,6 +5,18 @@ description: "Automate project documentation in Obsidian via CLI. Triggers: 'log
 
 # Obsidian Project Logger — Cheat Sheet
 
+## What Is This?
+
+A skill for automating project documentation directly from your terminal using Obsidian's CLI.
+
+Instead of manually opening Obsidian and writing notes, the AI agent can automatically:
+- Create and update project logs
+- Append daily session notes
+- Set properties (dates, tags, status)
+- Generate index files
+
+**Why it exists**: Keeps your project documentation in sync without leaving the terminal.
+
 ## Setup
 
 ### Step 1: Find Root Folder Path
@@ -137,14 +149,24 @@ updated: ${TODAY}
 
 # Project Index
 
+All active projects in the Personal vault.
+
 ## Projects
 
-- [[${ROOT}/My Project/My Project Log|My Project]]
+- [[${ROOT}/Opencode Settings/Opencode Settings Index|Opencode Settings]] — Centralized repo for AI skills, agents, and SDD
+- [[${ROOT}/Opencode Settings/Opencode Settings Log|Opencode Settings]]
 
 "
 
 obsidian create path="${ROOT}/Project Index.md" content="$INDEX" silent
 ```
+
+## Adding Projects to Index
+
+Every new project added to the root folder that the user owns MUST be referenced in the Project Index. When creating a new project log:
+
+1. Create the project folder and log file
+2. Update the Project Index to include a link to the new project
 
 ## Idempotency
 
